@@ -1,5 +1,6 @@
 import { DeseosService } from '../../providers/deseos.service';
 import { Component } from '@angular/core';
+import { Lista } from '../../models';
 
 @Component({
     selector: 'page-pendientes',
@@ -8,6 +9,12 @@ import { Component } from '@angular/core';
 export class PendientesPage{
     constructor ( public deseosService: DeseosService) {
 
+
+
+    }
+    listaSeleccionada(lista: Lista){
+        console.log(lista);
+        
 
     }
 
