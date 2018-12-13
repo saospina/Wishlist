@@ -13,9 +13,18 @@ export class AgregarPage {
     nombreItem: string = '';
     constructor(public deseosService: DeseosService,
         private navParams: NavParams) {
+
+
         const titulo = this.navParams.get('title');
-        this.lista = new Lista(titulo);
-        this.deseosService.agregarLista(this.lista);
+
+        if (this.navParams.get('lista')) {
+            this.lista = this.navParams.get('lista');
+        } else {
+
+            this.lista = new Lista(titulo);
+            this.deseosService.agregarLista(this.lista);
+
+        }
     }
 
     agregarItem() {
@@ -26,6 +35,7 @@ export class AgregarPage {
         }
         const newItem = new ListaItem(this.nombreItem);
         this.lista.items.push(newItem);
+        this.deseosService.guardarStorage();
         this.nombreItem = '';
 
 
@@ -33,12 +43,27 @@ export class AgregarPage {
 
     actualizarTarea(item: ListaItem) {
         item.completado = !item.completado;
-    }
+        this.deseosService.guardarStorage();
+        const pendientes = this.lista.items.filter(itemData => {
+            return !itemData.completado;
+        }).length;
+        if (pendientes === 0) {
+            this.lista.terminada = true;
+            this.lista.terminadaEn = new Date();
+        } else {
+            this.lista.terminada = false;
+            this.lista.terminadaEn = null;
+        }
 
+    }
     borrar(index: number) {
         this.lista.items.splice(index);
+        this.deseosService.guardarStorage();
     }
 
-
-
 }
+
+
+
+
+

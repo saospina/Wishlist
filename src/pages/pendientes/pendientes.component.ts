@@ -17,15 +17,18 @@ export class PendientesPage {
 
     }
     listaSeleccionada(lista: Lista) {
-        console.log(lista);
+        this.navCtrl.push( AgregarPage,{
+            title: lista.titulo,
+            lista: lista,
 
-
+        })
     }
     agregarLista() {
         
 
         const prompt = this.alertCtrl.create({
             title: 'List name',
+            cssClass: 'alertCreateList',
             message: "Enter a name for your list",
             inputs: [
                 {

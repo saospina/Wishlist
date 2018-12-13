@@ -79,6 +79,10 @@ $colors: (
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
 }
+.alert-md .alert-wrapper {
+  top: 30%;
+  position: absolute;
+}
 
 
 // App iOS Variables
