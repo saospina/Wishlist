@@ -13,6 +13,7 @@
     </ion-list-header>
 
     <ion-item>
+        <ion-icon name="add" item-start></ion-icon>
       <ion-label floating>New item</ion-label>
       <ion-input [(ngModel)]="nombreItem" type="text" (keyup.enter)="agregarItem()">
 
@@ -24,10 +25,10 @@
   <ion-list *ngIf="lista.items.length > 0">
 
     <ion-list>
-      <h1 text-center>To do</h1>
+      <h3 text-center>To do</h3>
     </ion-list>
 
-    <ion-item-sliding *ngFor="let item of lista.items, let i= index" class="animated fadeInDown" >
+    <ion-item-sliding *ngFor="let item of lista.items, let i= index" class="animated fadeInDown">
       <button ion-item detail-none (click)="actualizarTarea(item)">
         <ion-icon *ngIf="!item.completado" name="square-outline" item-start></ion-icon>
         <ion-icon *ngIf="item.completado" name="checkbox-outline" item-start></ion-icon>
@@ -35,12 +36,12 @@
 
       </button>
       <ion-item-options side="right">
-          <button ion-button color="danger" (click)="borrar()">
-            <ion-icon name="close"></ion-icon>
-            Delete
-          </button>
-          </ion-item-options>
-          
+        <button ion-button color="danger" (click)="borrar()">
+          <ion-icon name="close"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+
 
     </ion-item-sliding>
 

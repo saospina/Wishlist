@@ -37,8 +37,6 @@ export class AgregarPage {
         this.lista.items.push(newItem);
         this.deseosService.guardarStorage();
         this.nombreItem = '';
-
-
     }
 
     actualizarTarea(item: ListaItem) {
