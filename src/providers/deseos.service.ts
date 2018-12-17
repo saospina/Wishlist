@@ -20,7 +20,7 @@ export class DeseosService {
         this.listas.push(lista);
         this.guardarStorage();
     }
-// Este metodo en realidad no elimina, solo excluye el elemento, eso creo
+// Este metodo en realidad no elimina, solo excluye el elemento, eso creo, filter: hace un for
     borrarLista(lista: Lista) {
 
         this.listas = this.listas.filter( listaData => {
