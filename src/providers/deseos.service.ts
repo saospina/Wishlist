@@ -15,14 +15,27 @@ export class DeseosService {
         // this.listas.push(lista1, lista2);
         // console.log(this.listas);
     }
+
     agregarLista(lista: Lista){
         this.listas.push(lista);
         this.guardarStorage();
     }
+// Este metodo en realidad no elimina, solo excluye el elemento, eso creo
+    borrarLista(lista: Lista) {
+
+        this.listas = this.listas.filter( listaData => {
+            return listaData.id !== lista.id
+        });
+        this.guardarStorage();
+
+        
+    }
+
     guardarStorage(){
         localStorage.setItem('data',JSON.stringify (this.listas));
 
     }
+
     cargarStorage(){
         if ( localStorage.getItem('data')) {
             this.listas = JSON.parse(localStorage.getItem('data'));
@@ -33,4 +46,5 @@ export class DeseosService {
 
 
     }
+
 }

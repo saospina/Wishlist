@@ -28,6 +28,7 @@ export class AgregarPage {
     }
 
     agregarItem() {
+                
         this.nombreItem = this.nombreItem.trim();
         if (this.nombreItem.length === 0) {
             return;

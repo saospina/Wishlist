@@ -23,6 +23,12 @@ export class PendientesPage {
 
         })
     }
+
+    borrarLista(lista) {
+        this.deseosService.borrarLista(lista);
+
+    }
+
     agregarLista() {
         
 
