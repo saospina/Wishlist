@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DeseosService } from '../../providers/deseos.service';
 
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
     templateUrl: 'terminados.component.html',
 })
 export class TerminadosPage{
+
+    constructor(public deseosService: DeseosService){
+
+    }
+
 
 }

@@ -10,7 +10,12 @@
 
   <img src="../../assets/imgs/completed.png" alt="" float-left padding>
   <ion-list>
-    <p>Este es terminados component</p>
+    <button ion-item *ngFor="let lista of deseosService.listas | filtroCompletado:true"
+             (click)="listaSeleccionada(lista)" text-capitalize>
+      {{ lista.titulo }}
+
+
+    </button>
   </ion-list>
 
 
